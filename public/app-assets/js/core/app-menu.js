@@ -57,39 +57,36 @@
         }
       },
 
-      update: function () {
-        // if (this.obj) {
-        // Scroll to currently active menu on page load if data-scroll-to-active is true
-        if ($('.main-menu').data('scroll-to-active') === true) {
-          var activeEl, menu, activeElHeight;
-          activeEl = document.querySelector('.main-menu-content li.active');
-          menu = document.querySelector('.main-menu-content');
-          if ($body.hasClass('menu-collapsed')) {
-            if ($('.main-menu-content li.sidebar-group-active').length) {
-              activeEl = document.querySelector('.main-menu-content li.sidebar-group-active');
-            }
-          }
-          if (activeEl) {
-            activeElHeight = activeEl.getBoundingClientRect().top + menu.scrollTop;
-          }
 
-          // If active element's top position is less than 2/3 (66%) of menu height than do not scroll
-          if (activeElHeight > parseInt((menu.clientHeight * 2) / 3)) {
-            var start = menu.scrollTop,
-              change = activeElHeight - start - parseInt(menu.clientHeight / 2);
+      update: function () {
+        // Vérifiez si le menu existe avant de continuer
+        if ($('.left-sidebar').data('scroll-to-active') === true) {
+          var activeEl, menu, activeElHeight;
+          activeEl = document.querySelector('.left-sidebar .sidebar-item.active'); // Sélecteur mis à jour
+          menu = document.querySelector('.left-sidebar'); // Sélecteur mis à jour
+
+          if (menu && activeEl) {
+            activeElHeight = activeEl.getBoundingClientRect().top + menu.scrollTop;
+
+            // Si la position de l'élément actif est inférieure à 2/3 de la hauteur du menu, ne pas faire défiler
+            if (activeElHeight > parseInt((menu.clientHeight * 2) / 3)) {
+              var start = menu.scrollTop,
+                change = activeElHeight - start - parseInt(menu.clientHeight / 2);
+
+              setTimeout(function () {
+                $(menu).stop().animate(
+                  {
+                    scrollTop: change
+                  },
+                  300
+                );
+                $('.left-sidebar').data('scroll-to-active', 'false'); // Sélecteur mis à jour
+              }, 300);
+            }
+          } else {
+            console.warn('Menu ou élément actif introuvable. Vérifiez les sélecteurs.');
           }
-          setTimeout(function () {
-            $.app.menu.container.stop().animate(
-              {
-                scrollTop: change
-              },
-              300
-            );
-            $('.main-menu').data('scroll-to-active', 'false');
-          }, 300);
         }
-        // this.obj.update();
-        // }
       },
 
       enable: function () {
