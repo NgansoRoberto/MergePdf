@@ -4,23 +4,22 @@
 
 @section('content')
 
-
 <div class="content app-content">
     <div class="content-overlay"></div>
     <div class="header-navbar-shadow"></div>
     <div class="content-wrapper">
-    
+
         @if(session()->has('success'))
             <div class="alert alert-success">
                 {{ session()->get('success')}}
             </div>
         @endif
-        <div class="content-body" >
+        <div class="content-body">
             <section id="multiple-column-form" class="">
                 <div class="row justify-content-center">
-                    <div class="col-lg-8 col-md-10"> <!-- Limite la largeur de la barre d'outils -->
+                    <div class="col-12"> <!-- Changed to take full width -->
                         <div class="card shadow-sm border-0">
-                            <div class="card-body ">
+                            <div class="card-body">
                                 <div class="toolbar d-flex flex-wrap align-items-center mb-4">
                                     <button class="btn btn-outline-secondary tool-button d-flex align-items-center me-2">
                                         <i class="bi bi-plus-lg me-1"></i> Ajouter
@@ -63,6 +62,7 @@
                 </div>
             </section>
         </div>
+    </div>
 </div>
 
 @endsection

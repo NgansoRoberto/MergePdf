@@ -95,8 +95,6 @@
         }
 
         .logo {
-            padding: 15px 0 !important;
-            background: linear-gradient(135deg, #ff0066, #6600ff) !important;
             width: 100% !important;
             height: 70px !important;
             display: flex !important;
@@ -273,23 +271,23 @@
 
     <body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="hover" data-menu="vertical-menu-modern" data-col="" <?php if(session()->has('message')){ ?> onload="success()" <?php } ?>>
 
-      
+
         <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow">
             <div class="navbar-container d-flex content">
-        
-               
+
+
                 <div class="bookmark-wrapper d-flex align-items-center">
                     <ul class="nav navbar-nav d-xl-none">
                         <li class="nav-item"><a class="nav-link menu-toggle" href="javascript:void(0);"><i class="ficon" data-feather="menu"></i></a></li>
                     </ul>
                 </div>
-          
+
                 <li  class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
-        
+
                 <ul class="nav navbar-nav align-items-center ml-auto">
-        
-        
-        
+
+
+
                     <li class="nav-item dropdown  dropdown-user" data-menu="dropdown"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="javascript:void(0);" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none"><span class="user-name font-weight-bolder">{{Auth::user()->name}}</span><span class="user-status badge badge-light-dark round">{{Auth::user()->type}}</span></div><span data-toggle="tooltip" data-placement="bottom" title="options" class="avatar"><span class="avatar-content bg-dark" style="width:37px; height:37px;">
                             @php
@@ -297,23 +295,23 @@
                                 echo "<span class='text-light'> $nom </span>"
                             @endphp
                             </span><span class="avatar-status-online"></span></span>
-        
+
                     </a>
-        
+
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
                         <a class="dropdown-item" href="#"> <i class="mr-50" data-feather="user"></i> Profile</a>
                         <a class="dropdown-item" href="#"> <i class="mr-50" data-feather="settings"></i> Settings</a>
-        
+
                         <form id="logout-form2" action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button class="dropdown-item" data-toggle="tooltip" data-placement="bottom" title="Disconnect" type="submit">
                                 <i class="mr-50" data-feather="power"></i> Logout
                             </button>
                         </form>
-        
-        
+
+
                         <li>
-        
+
                             <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                     @csrf
                                 <button class=" btn  btn-icon " id="logout-button" data-toggle="tooltip" data-placement="bottom" title="Disconnect" style="margin-bottom:0px !important;">
@@ -326,7 +324,7 @@
                 </ul>
             </div>
         </nav>
-        
+
         <div class="text-center" hidden id="spinner">
             <div class="col-12 text-center">
                 <div class="spinner-border text-dark" role="status">
@@ -335,19 +333,19 @@
         </div>
         </div>
         <!-- END: Header-->
-        
+
         @include('includes/menu')
-        
+
         <!-- BEGIN: Content-->
             @yield('content')
         <!-- END: Content-->
-        
+
         <div class="sidenav-overlay"></div>
         <div class="drag-target"></div>
-        
-    
-        
-        
+
+
+
+
 
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
